@@ -4,7 +4,7 @@ class User(db.Model):
     #Create the users table
     __tablename__ = "users"
 
-    #table
+    #Users table created of columns
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     email = db.Column(db.String, nullable=False, unique=True)
@@ -18,8 +18,8 @@ class UserSchema(ma.Schema):
 
 #call a single user 
 user_schema = UserSchema(exclude=["password"])
-
 #call a list of users
-user_schema = UserSchema(many=True, exclude=["password"])
+user_schemas = UserSchema(many=True, exclude=["password"])
+
 
 

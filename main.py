@@ -3,6 +3,7 @@ from flask import Flask
 
 from init import db, ma, bcrypt, jwt
 from controllers.cli_controllers import db_commands
+from controllers.auth_controller import auth_bp
 
 #create the app by creating the file and access them
 def create_app():
@@ -16,5 +17,6 @@ def create_app():
     jwt.init_app(app)
 
     app.register_blueprint(db_commands)
-    
+    app.register_blueprint(auth_bp)
+
     return app
